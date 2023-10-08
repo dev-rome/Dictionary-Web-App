@@ -18,11 +18,10 @@ function toggleTheme() {
 function updateThemeIcon() {
   if (body.classList.contains("dark-mode")) {
     circle.style.transform = "translate(50%, -50%)";
-    circle.style.left = "calc(100% - 24px)"
+    circle.style.left = "calc(100% - 24px)";
   } else {
     circle.style.transform = "translate(-50%, -50%)";
-    circle.style.left = "10px"
-
+    circle.style.left = "10px";
   }
 }
 
