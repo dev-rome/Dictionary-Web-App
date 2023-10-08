@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="app,js" defer></script>
+    <script src="/app.js"" defer></script>
     <link
       rel="icon"
       type="image/png"
@@ -14,5 +14,35 @@
 
     <title>Frontend Mentor | Dictionary web app</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <img src="/assets/images/logo.svg" alt="logo" class="logo" />
+        <div class="font-theme-controls">
+          <div class="dropdown">
+            <p class="dropdown-font">Sans Serif</p>
+            <div id="myDropdown" class="dropdown-content hide">
+              <a href="#">Sans Serif</a>
+              <a href="#">Serif</a>
+              <a href="#">Mono</a>
+            </div>
+            <button class="btn-arrow">
+              <img src="/assets/images/icon-arrow-down.svg" alt="down-arrow" />
+            </button>
+          </div>
+
+          <div class="vl"></div>
+
+          <div class="theme-toggle">
+            <div class="toggle-switch">
+              <div class="circle"></div>
+            </div>
+            <img src="./assets/images/icon-moon.svg" alt="moon" />
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <main></main>
+  </body>
 </html>
