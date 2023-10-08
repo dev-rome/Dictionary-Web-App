@@ -31,6 +31,7 @@
 body {
   background: var(--color-whitesmoke);
   color: var(--color-charcoal);
+  font-family: 'Inter', sans-serif;;
 }
 
 body.dark-mode {
@@ -89,6 +90,24 @@ header {
   gap: 1rem;
   padding: 1.5rem 4.313rem 1.5rem 1.5rem;
 }
+
+body.dark-mode .dropdown-content {
+  background-color: var(--color-gunmetal);
+}
+
+.dropdown-content a {
+  font-size: var(--fs-18);
+  font-weight: bold;
+  color: var(--color-charcoal);
+}
+
+body.dark-mode .dropdown-content a {
+  color: var(--color-white);
+}
+
+/* .dropdown-content a:hover {
+  color: var(--color-periwinkle);
+} */
 
 .btn-arrow {
   background: none;
