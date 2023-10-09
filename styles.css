@@ -31,7 +31,7 @@
 body {
   background: var(--color-whitesmoke);
   color: var(--color-charcoal);
-  font-family: 'Inter', sans-serif;;
+  font-family: "Inter", sans-serif;
 }
 
 body.dark-mode {
@@ -140,6 +140,56 @@ body.dark-mode .dropdown-content a {
   height: 14px;
   border-radius: 50%;
   background-color: var(--color-white);
+}
+
+form {
+  margin-top: 1.5rem;
+}
+
+form input {
+  width: 100%;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  padding: 1.188rem 1.5rem;
+  background-color: var(--color-lightgray);
+  background-image: url("./assets/images/icon-search.svg");
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+body.dark-mode form input {
+  background-color: var(--color-gunmetal);
+}
+
+form input[type="text"] {
+  color: var(--color-charcoal);
+  font-weight: bold;
+}
+
+body.dark-mode form input[type="text"] {
+  color: var(--color-white);
+}
+
+.definition-wrapper {
+  margin-top: 1.5rem;
+}
+
+.definition {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.phonetic {
+  font-size: 18px;
+  color: var(--color-periwinkle);
+  margin-top: 0.563rem;
 }
 
 .hide {
