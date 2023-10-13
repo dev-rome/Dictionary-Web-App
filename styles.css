@@ -43,6 +43,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .container {
   max-width: 736px;
   margin: 0 auto;
@@ -104,10 +108,6 @@ body.dark-mode .dropdown-content {
 body.dark-mode .dropdown-content a {
   color: var(--color-white);
 }
-
-/* .dropdown-content a:hover {
-  color: var(--color-periwinkle);
-} */
 
 .btn-arrow {
   background: none;
@@ -187,11 +187,173 @@ body.dark-mode form input[type="text"] {
 }
 
 .phonetic {
-  font-size: 18px;
+  font-size: var(--fs-18);
+  font-weight: 400;
   color: var(--color-periwinkle);
   margin-top: 0.563rem;
 }
 
+.hl {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+hl,
+p {
+  font-size: var(--fs-20);
+  font-weight: bold;
+  font-style: italic;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-lightgray);
+}
+
+body.dark-mode .line {
+  background-color: var(--color-dimgray);
+}
+
+.meaning-wrapper {
+  margin-top: 2rem;
+}
+
+.meaning-wrapper p {
+  font-size: 1rem;
+}
+
+.meaning-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.meaning-wrapper .meaning-list .meaning-item::before {
+  content: "\2022";
+  color: var(--color-periwinkle);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 0.938rem;
+}
+
+.meaning-synonyms {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.meaning-wrapper h2,
+.meaning-synonyms h2 {
+  font-size: 1rem;
+  color: var(--color-silver);
+  font-weight: 400;
+}
+
+.meaning-synonyms-item {
+  font-weight: bold;
+  color: var(--color-periwinkle);
+}
+
+.meaning-list-example {
+  font-size: 0.938rem;
+  color: var(--color-silver);
+}
+
+.source {
+  padding: 1.5rem 1.5rem 5.313rem;
+}
+
+.source h3 {
+  font-size: var(--fs-14);
+  text-decoration: underline;
+  color: var(--color-silver);
+}
+
+.source-link a {
+  font-size: var(--fs-14);
+  text-decoration: underline;
+  color: var(--color-charcoal);
+}
+
+.source-link {
+  display: flex;
+  gap: 0.625rem;
+}
+
+body.dark-mode .source a {
+  color: var(--color-white);
+}
+
 .hide {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    margin-top: 3.625rem;
+  }
+
+  form {
+    margin-top: 3.125rem;
+  }
+
+  .definition-wrapper {
+    margin-top: 2.813rem;
+  }
+
+  .dropdown-font,
+  form input[type="text"],
+  .phonetic,
+  .meaning-item,
+  .meaning-list-example p .meaning-list-example {
+    font-size: var(--fs-18);
+  }
+
+  .word {
+    font-size: var(--fs-64);
+  }
+
+  .hl {
+    margin-top: 2.5rem;
+  }
+
+  .hl p {
+    font-size: var(--fs-24);
+  }
+
+  .meaning-wrapper,
+  .meaning-synonyms {
+    margin-top: 2.375rem;
+  }
+
+  .meaning-wrapper h2,
+  .meaning-synonyms h2,
+  .meaning-synonyms h2,
+  .meaning-synonyms-item {
+    font-size: var(--fs-20);
+  }
+
+  .source {
+    display: flex;
+    align-items: center;
+    gap: 1.563rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .dropdown-content a:hover,
+  body.dark-mode .dropdown-content a:hover {
+    color: var(--color-periwinkle);
+  }
+
+  .toggle-switch, .btn-arrow, #play-button, .source-link {
+    cursor: pointer;
+  }
 }
