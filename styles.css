@@ -234,7 +234,7 @@ body.dark-mode .line {
   list-style: none;
 }
 
-.meaning-wrapper .meaning-list .meaning-item::before {
+.meaning-item::before, .meaning-item-noun::before {
   content: "\2022";
   color: var(--color-periwinkle);
   display: inline-block;
@@ -312,6 +312,7 @@ body.dark-mode .source a {
   form input[type="text"],
   .phonetic,
   .meaning-item,
+  .meaning-item-noun,
   .meaning-list-example p .meaning-list-example {
     font-size: var(--fs-18);
   }
