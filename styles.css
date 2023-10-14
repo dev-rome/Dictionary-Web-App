@@ -184,6 +184,7 @@ body.dark-mode form input[type="text"] {
 .word {
   font-size: 2rem;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .phonetic {
