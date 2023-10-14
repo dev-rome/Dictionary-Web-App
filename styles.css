@@ -235,7 +235,8 @@ body.dark-mode .line {
   list-style: none;
 }
 
-.meaning-item-noun::before, .meaning-item-verb::before {
+.meaning-item-noun::before,
+.meaning-item-verb::before {
   content: "\2022";
   color: var(--color-periwinkle);
   display: inline-block;
@@ -290,6 +291,30 @@ body.dark-mode .line {
 
 body.dark-mode .source a {
   color: var(--color-white);
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.no-results span {
+  font-size: var(--fs-64);
+  margin-top: 8.25rem;
+}
+
+.no-results h3 {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  margin: 2.75rem 0 1.5rem;
+}
+
+.no-results p {
+  font-size: var(--fs-18);
+  font-weight: 400;
+  color: var(--color-silver);
 }
 
 .hide {
@@ -355,7 +380,10 @@ body.dark-mode .source a {
     color: var(--color-periwinkle);
   }
 
-  .toggle-switch, .btn-arrow, #play-button, .source-link {
+  .toggle-switch,
+  .btn-arrow,
+  #play-button,
+  .source-link {
     cursor: pointer;
   }
 }
