@@ -134,8 +134,8 @@ body.dark-mode .dropdown-content a {
 
 .circle {
   position: absolute;
-  top: 50%; 
-  left: 0; 
+  top: 50%;
+  left: 10%;
   transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
