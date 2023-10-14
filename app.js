@@ -82,9 +82,7 @@ const fetchData = async (inputValue = "Keyboard") => {
           }
         }
       });
-      console.log(sourceLink);
     } else {
-      console.log("No word was found");
       noResults.classList.remove("hide");
       definitionHide.classList.add("hide");
     }
