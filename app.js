@@ -1,3 +1,5 @@
+"use strict";
+
 // Get references to elements
 const body = document.body;
 const fontText = document.querySelector(".dropdown-font");
@@ -9,20 +11,83 @@ const toggleSwitch = document.querySelector(".toggle-switch");
 const moonIcon = document.querySelector(".svg-moon");
 const circle = document.querySelector(".circle");
 const form = document.querySelector("form");
+const definitionHide = document.querySelector(".definition-wrapper");
 const inputText = document.querySelector("form input");
 const word = document.querySelector(".word");
 const phonetic = document.querySelector(".phonetic");
-const playButton = document.querySelector("#play-button")
+const playButton = document.querySelector("#play-button");
+const nounListItems = document.querySelectorAll(".meaning-item-noun");
+const verbListItem = document.querySelector(".meaning-item-verb");
+const synonymsListItem = document.querySelector(".meaning-synonyms-item");
+const listExample = document.querySelector(".meaning-list-example");
+const sourceLink = document.querySelector(".source-link a");
+const noResults = document.querySelector(".no-results");
+const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
-const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+let audioUrl = null;
+let sourceWindow = null;
 
 // fetch api data
-const fetchData = async (inputValue) => {
+const fetchData = async (inputValue = "Keyboard") => {
   try {
     const res = await fetch(url + inputValue);
     const data = await res.json();
-    word.textContent = data[0].word;
-    phonetic.textContent = data[0].phonetic
+
+    if (data && data[0]) {
+      noResults.classList.add("hide");
+      definitionHide.classList.remove("hide");
+      const firstResult = data[0];
+
+      word.textContent = firstResult.word || "No data available";
+      phonetic.textContent = firstResult.phonetic || "No data available";
+
+      audioUrl =
+        firstResult.phonetics.find((audio) => audio.audio)?.audio ||
+        "No data available";
+
+      const meaningsNoun = firstResult.meanings[0].definitions.slice(0, 3);
+      nounListItems.forEach((item, index) => {
+        item.textContent = meaningsNoun[index]
+          ? meaningsNoun[index].definition
+          : "No data available";
+      });
+
+      const meaningVerb = firstResult.meanings[0].definitions.slice(0, 1);
+      verbListItem.textContent = meaningVerb[0]
+        ? meaningVerb[0].definition
+        : "No data available";
+
+      const wordSynonyms = firstResult.meanings[0].synonyms.slice(0, 3);
+      synonymsListItem.textContent =
+        wordSynonyms.length > 0 ? wordSynonyms.join(" ") : "No data available";
+
+      const firstExample = firstResult.meanings[0].definitions.find(
+        (definition) => definition.example
+      );
+      listExample.textContent = firstExample
+        ? firstExample.example
+        : "No data available";
+
+      const source = firstResult.sourceUrls[0];
+      sourceLink.href = source || "#";
+      sourceLink.textContent = source ? source : "No data available";
+
+      sourceLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (source) {
+          if (sourceWindow && !sourceWindow.closed) {
+            sourceWindow.location.href = source;
+          } else {
+            sourceWindow = window.open(source, "_blank");
+          }
+        }
+      });
+      console.log(sourceLink);
+    } else {
+      console.log("No word was found");
+      noResults.classList.remove("hide");
+      definitionHide.classList.add("hide");
+    }
   } catch (error) {
     throw new Error("Failed to fetch data.");
   }
@@ -80,10 +145,12 @@ dropdownValue.forEach((value) => {
   });
 });
 
+// toggle dropdown menu button
 btnArrow.addEventListener("click", function () {
   dropdownContent.classList.toggle("hide");
 });
 
+// handle form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   fetchData(inputText.value);
@@ -96,9 +163,15 @@ themeToggle.addEventListener("click", () => {
   updateThemeIcon();
 });
 
-// playButton.addEventListener("click", function() {
-
-// })
+// play audio for definition word
+playButton.addEventListener("click", function () {
+  if (audioUrl) {
+    // Create an Audio object
+    const audio = new Audio(audioUrl);
+    // Play the audio
+    audio.play();
+  }
+});
 
 // Check the user's preferred theme and set it if available
 const userPreferredTheme = localStorage.getItem("theme");
@@ -106,3 +179,5 @@ if (userPreferredTheme === "dark") {
   body.classList.add("dark-mode");
   updateThemeIcon();
 }
+
+fetchData();
