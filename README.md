@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://www.frontendmentor.io/solutions/responsive-clock-app-using-html-css-javascript-EvPgHD6NGx)
+- [Solution](https://www.frontendmentor.io/solutions/responsive-dictionary-web-app-using-html-css-css-flexbox-javascript-Su18l0C1Fm)
 - [Live Site](https://inquisitive-biscochitos-13dfd2.netlify.app/)
 
 ## My process
